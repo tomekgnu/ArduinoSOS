@@ -2,6 +2,7 @@
 //
 void setup()
 {
+  Serial.begin(9600); // set up transmission speed
   pinMode(LED_BUILTIN, OUTPUT);  
 }
 
@@ -9,21 +10,41 @@ void loop()
 {
  
   int sensorValue = analogRead(A0);
-  int delayTime = (sensorValue / 1023.00) * 1000;
-  blink(3,delayTime / 2);
-  blink(3,delayTime);
-  blink(3,delayTime / 2);
-  delay(2000);
+  Serial.print(sensorValue);
+  Serial.print("\n");
+ // int delayTime = (sensorValue / 1023.00) * 1000;
+  //Serial.print(delayTime);  // show variable delayTime
+ // Serial.print("\n");
+  //smallPeriod(3,delayTime / 2);
+  //smallPeriod(3,delayTime);
+  //smallPeriod(3,delayTime / 2);
+  //delay(2000);
+
+
+  
+  //singlePeriod(500);  // short
+  //singlePeriod(500);  // short
+  //singlePeriod(500);  // short
+
+  //singlePeriod(1000); // long
+  //singlePeriod(1000); // long
+ // singlePeriod(1000); // long
+
+  //singlePeriod(500);  // short
+  //singlePeriod(500);  // short
+ // singlePeriod(500);  // short
+
+  delay(1000);
+
 }
 
-void blink(int times,int width){
+// blink on and off
+void singlePeriod(int length){
   
-  int n;
-  for(n = 0; n < times; n++){
     digitalWrite(LED_BUILTIN, HIGH);
-  	delay(width / 2);
+  	delay(length / 2);
     digitalWrite(LED_BUILTIN, LOW);
-  	delay(width / 2);
-  }  
+  	delay(length / 2);
+ 
   
 }
