@@ -8,10 +8,10 @@ void setup()
 
 void loop()
 {
- 
+ //zmienna przechowująca odczyt z potencjometru
   int sensorValue = analogRead(A0);
-  Serial.print(sensorValue);
-  Serial.print("\n");
+ //Serial.print(sensorValue);
+  //Serial.print("\n");
  // int delayTime = (sensorValue / 1023.00) * 1000;
   //Serial.print(delayTime);  // show variable delayTime
  // Serial.print("\n");
@@ -20,6 +20,9 @@ void loop()
   //smallPeriod(3,delayTime / 2);
   //delay(2000);
 
+if (sensorValue > 1000)
+  sensorValue=1000;
+  singlePeriod(sensorValue) ;
 
   
   //singlePeriod(500);  // short
@@ -34,7 +37,7 @@ void loop()
   //singlePeriod(500);  // short
  // singlePeriod(500);  // short
 
-  delay(1000);
+  //delay(1000);
 
 }
 
